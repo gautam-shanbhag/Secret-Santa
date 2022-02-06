@@ -1,0 +1,9 @@
+gautam | gaut@abc.com | apurva
+apurva | apu@abc.com | gautam
+prashant | prash@abc.com
+paritosh | pari@abc.com | aditya, karnika
+vishvesh | vishu@abc.com | rutuja
+ash | ash@abc.com
+rutuja | rutu@abc.com | vishvesh
+aditya | adit@abc.com | paritosh, karnika
+karnika | karnika@abc.com | aditya, paritosh
