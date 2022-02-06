@@ -54,7 +54,7 @@ def input_details():
     global x, option, filename, file, text, info, count, i, name, email
     print("""How would you like to enter the information?
      1. give a text (.txt) file with format of:
-         name, email address
+         name| email address | comma seperated family members
      2. manually enter information""")
     # info entry method choice
     x = 0
