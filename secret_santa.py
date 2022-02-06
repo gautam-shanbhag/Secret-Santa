@@ -7,6 +7,9 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 
+#------- Helper Functions --------
+
+
 def append_value(dict_obj, key, value):
     # Check if key exist in dict or not
     if key in dict_obj:
@@ -21,24 +24,6 @@ def append_value(dict_obj, key, value):
         # As key is not in dict,
         # so, add key-value pair
         dict_obj[key] = value
-
-
-sender_address = 'gautampshanbhag@gmail.com'
-sender_pass = 'Shanbhag@123'
-
-names = []
-emails = []
-recipient = []
-budget = 50
-family = {}
-
-count = 0
-
-print("""Welcome to the secret santa decision-maker!
-Before we begin do you want to keep previous history or clear it?
-     1. Keep History
-     2. Clear History""")
-
 
 def clear_history():
     global x, option
@@ -64,7 +49,6 @@ def clear_history():
             os.remove("SantaHistory.txt")
         else:
             print("History does not exist !")
-
 
 def input_details():
     global x, option, filename, file, text, info, count, i, name, email
@@ -111,7 +95,6 @@ def input_details():
         file.close()
 
 
-
     # option 2: manually get info
     elif (option == 2):
 
@@ -142,9 +125,9 @@ def input_details():
                 else:
                     print("ERROR: invalid email!")
             fam = str(input(f'Enter comma separated family member names of participant {i}: '))
-            family[name.strip()] = fam.strip().split(',')
+            list = fam.strip().split(',')
+            family[name.strip()] = [x.strip() for x in list]
             x = 1
-
 
 def get_history_ifexists():
     global filename, mapExists, text, info, map
@@ -160,12 +143,9 @@ def get_history_ifexists():
     except:
         print("History does not exist !")
 
-
 def factorial(n):
     # single line to find factorial
     return 1 if (n == 1 or n == 0) else n * factorial(n - 1);
-
-
 
 def secret_santa_algo():
     global possible_santa, i, x
@@ -204,7 +184,6 @@ def secret_santa_algo():
                 cont = 1
             else:
                 cont = 0
-
 
 # Sending the emails to the participants
 def send_mails():
@@ -245,7 +224,6 @@ Remember the budget is ${budget}
         session.sendmail(sender_address, receiver_address, text)
         session.quit()
 
-
 def save_allocations_history():
     global history, i, key
     allocations = open("SantaAllocations.txt", "w+")
@@ -270,7 +248,25 @@ def save_allocations_history():
     history.close
     allocations.close()
 
+
+
 #------- Main Execution --------
+
+sender_address = 'email@abc.com'
+sender_pass = 'password'
+
+names = []
+emails = []
+recipient = []
+budget = 50
+family = {}
+
+count = 0
+
+print("""Welcome to the secret santa decision-maker!
+Before we begin do you want to keep previous history or clear it?
+     1. Keep History
+     2. Clear History""")
 
 clear_history()
 
