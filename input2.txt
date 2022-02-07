@@ -1,0 +1,5 @@
+gautam | gaut@abc.com | apurva, prashant, ash
+apurva | apu@abc.com | gautam, prashant, ash
+prashant | prash@abc.com | apurva, ash, gautam
+ash | ash@abc.com | gautam, prashant, apurva
+paritosh | pari@abc.com |
