@@ -151,10 +151,9 @@ def secret_santa_algo():
     global possible_santa, i, x
     cont = 0
     tries = 0
-
-    while (cont == 0 and tries < factorial(len(names))):
+    retries = factorial(len(names))
+    while (cont == 0 and tries < retries ):
         recipient.clear()
-
         redo = False
         possible_santa = names.copy()
 
@@ -187,7 +186,8 @@ def secret_santa_algo():
                 cont = 0
         tries +=1
     else :
-        exit("Secret Santa cannot be generated. Please Try Again")
+        if (tries == retries):
+            exit("Secret Santa cannot be generated. Please Try Again")
 
 # Sending the emails to the participants
 def send_mails():
